@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign In</title>
+  <link rel="stylesheet" type="text/css" href="form.css">
+  <script src="lib/angular.js"></script>
+</head>
+<body ng-app="validationApp" ng-controller="mainController">
+    <div class="wrapper">
+    <form class="form-signin"form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>       
+      <h2 class="form-signin-heading">Please login</h2>
+      <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+      <!--<input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" /><-->
+      <input type="email" name="email" class="form-control" ng-model="user.email" required>
+            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+    <br>
+    </br>
+      <input type="password" class="form-control" name="password" placeholder="Password" required=""/>   
+      <br>
+    </br>   
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+    <br>
+    </br>
+      </label>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="window.location.href='webpro.html'">Login</button> 
+      </div>
+      </form>  
+    </form>
+  </div>
+  <p><button onclick ="clickCounter()" type="button"><h3>Visits</h3></button></p>
+
+    <div id="result">
+      
+    </div>
+
+
+
+
+
+</body>
+<script>
+  function clickCounter(){
+    if(typeof(Storage)!=="undefined"){
+      if(localStorage.clickcount){
+        localStorage.clickcount=Number(localStorage.clickcount)+1;
+      }
+      else{
+        localStorage.clickcount=1;
+      }
+      document.getElementById("result").innerHTML="There were a total of "+localStorage.clickcount+"visits";
+
+  }
+  else{
+  document.getElementById("result").innerHTML="Ypur Browser does not support local storage";
+    }
+  }
+  </script>
+  <script>
+    var app = angular.module('validationApp', []);
+
+app.controller('mainController', function($scope) {
+      
+  $scope.submitForm = function(isValid) {
+    
+    if (isValid) { 
+      alert('Email  validated');
+    }
+    else
+      alert('Enter a valid email');
+
+  };
+
+});
+  </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="dropdown-menu">
+  <form class="px-4 py-3">
+    <div class="form-group">
+      <label for="exampleDropdownFormEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+    </div>
+    <div class="form-group">
+      <label for="exampleDropdownFormPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="dropdownCheck">
+        <label class="form-check-label" for="dropdownCheck">
+          Remember me
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" href="#">New around here? Sign up</a>
+  <a class="dropdown-item" href="#">Forgot password?</a>
+</div><!-->

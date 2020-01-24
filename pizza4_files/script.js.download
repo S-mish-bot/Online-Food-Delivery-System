@@ -1,0 +1,37 @@
+window.jQuery = function (nodeOrSelector) {
+    if (typeof nodeOrSelector == "string") {
+        return document.querySelector(nodeOrSelector);
+    }
+    return nodeOrSelector;
+};
+    
+window.formHubspotCreated = function (modal) {
+    try {
+        var formIdHubspot = "ec3e312b-1964-4677-8208-db3ba46e3ad8";
+        hbspt.forms.create({
+            portalId: "4221997",
+            formId: formIdHubspot,
+            target: "#formHubspot",
+            onFormSubmit: function () {
+                modal.show("modal-popup-pre-black-thanks");
+            },
+            onFormSubmitted: function () {
+                ga2(
+                    "send",
+                    "event",
+                    "campaign",
+                    "click",
+                    "window-whitelist-join"
+                );
+            },
+            locale: LANGUAGE,
+            translations: {
+                es: {
+                    submitText: "Me apunto"
+                }
+            }
+        });
+    } catch (err) {
+        console.error('Autocampaign', err);
+    }
+};

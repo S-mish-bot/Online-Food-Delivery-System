@@ -1,0 +1,60 @@
+body{
+	font-family: $font-family-sans-serif:
+  // Safari for macOS and iOS (San Francisco)
+  -apple-system,
+  // Chrome < 56 for macOS (San Francisco)
+  BlinkMacSystemFont,
+  // Windows
+  "Segoe UI",
+  // Android
+  "Roboto",
+  // Basic web fallback
+  "Helvetica Neue", Arial, sans-serif,
+  // Emoji fonts
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+  background-color: #C0C0C0;
+}
+button{
+	text-align: center;
+	padding-left: 100px;
+	color:white;
+}
+#a{
+	color:white;
+}
+.container-fluid{
+	background-color: #fff;
+}
+#container-fluid{
+	background-color: #ff8b03;
+	height: 40px;
+	padding-top: 10px;
+}
+#container-fluid ul li{
+	display:inline-block;
+}
+#container-fluid ul{
+	list-style-type: none;
+		display:inline-block;
+	float:center;
+
+}
+#container-fluid ul li a{
+	text-decoration: none;
+	font-size: 30px;
+	font-family: Montserrat;
+	margin: 40px;
+    
+
+    color:black;
+    transition:0.1s ease;
+    border:20px solid transparent;
+    box-shadow: 30px;
+}
+#container-fluid ul li a:hover{
+	color:black;
+	
+	background-color:#fff;
+	border-radius: 10px;
+	text-underline-position: inherit;
+}
